@@ -13,7 +13,7 @@ let number = 0;
 input.addEventListener('change', (event) => number = event.currentTarget.value);
 
 function createBoxes(amount) {
- if (amount >= 1 || amount <= 100) {
+ if (amount >= 1 && amount <= 100) {
     let squares = '';
     const numOfBoxes = document.querySelectorAll(".square").length;
     for (let i = 0; i < amount; i++) {
