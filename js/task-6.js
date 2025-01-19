@@ -9,9 +9,6 @@ const buttonCreate = document.querySelector('button[data-create]');
 const buttonDestroy = document.querySelector('button[data-destroy]');
 const boxes = document.querySelector('#boxes');
 
-// let number = 0;
-// input.addEventListener('change', (event) => number = event.currentTarget.value);
-
 function createBoxes(amount) {
  if (amount >= 1 && amount <= 100) {
     let squares = '';
