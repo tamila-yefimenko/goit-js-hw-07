@@ -8,7 +8,6 @@ const input = document.querySelector('input[type="number"]');
 const buttonCreate = document.querySelector('button[data-create]');
 const buttonDestroy = document.querySelector('button[data-destroy]');
 const boxes = document.querySelector('#boxes');
-let size = 30;
 
 let number = 0;
 input.addEventListener('change', (event) => number = event.currentTarget.value);
@@ -16,13 +15,15 @@ input.addEventListener('change', (event) => number = event.currentTarget.value);
 function createBoxes(amount) {
  if (amount >= 1 || amount <= 100) {
     let squares = '';
-   for (let i = 0; i < amount; i++) {
-    squares += `<div class="square" style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
-    size += 10;
-
+    const numOfBoxes = document.querySelectorAll(".square").length;
+    for (let i = 0; i < amount; i++) {
+      let size = numOfBoxes === 0
+        ? 30 + i * 10
+        : 30 + (numOfBoxes + i + 1) * 10;
+      squares += `<div class="square" style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
+    }
+    boxes.insertAdjacentHTML("beforeend", squares);
   }
-  boxes.insertAdjacentHTML("beforeend", squares);
-}
   input.value = "";
 }
 
@@ -34,5 +35,4 @@ function handleCreate(event) {
 buttonDestroy.addEventListener('click', destroyBoxes);
 function destroyBoxes(event) {
   boxes.innerHTML = "";
-  size = 30;
 }
