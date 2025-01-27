@@ -16,7 +16,7 @@ function createBoxes(amount) {
     for (let i = 0; i < amount; i++) {
       let size = numOfBoxes === 0
         ? 30 + i * 10
-        : 30 + (numOfBoxes + i + 1) * 10;
+        : 30 + (numOfBoxes + i) * 10;
       squares += `<div class="square" style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
     }
     boxes.insertAdjacentHTML("beforeend", squares);
